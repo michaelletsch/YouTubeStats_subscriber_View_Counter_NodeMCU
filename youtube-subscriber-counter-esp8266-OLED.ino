@@ -3,7 +3,10 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 
+//create display(Adr, SDA-pin, SCL-pin)
+//SSD1306 display(0x3c, 5, 4); //GPIO 5 = D1, GPIO 4 = D2
 SSD1306  display(0x3c, 5 /*D1*/, 4 /*D2*/);
+
 
 //------- Replace the following! ------
 char ssid[] = "****";       // your network SSID (name)
