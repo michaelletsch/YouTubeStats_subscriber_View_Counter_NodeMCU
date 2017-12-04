@@ -14,7 +14,7 @@ char password[] = "****";  // your network key
 WiFiClientSecure client;
 YoutubeApi api(API_KEY, client);
 
-int api_mtbs = 30000; //mean time between api requests
+int api_mtbs = 60000; //mean time between api requests
 long api_lasttime;   //last time api request has been done
 
 long subs = 0;
