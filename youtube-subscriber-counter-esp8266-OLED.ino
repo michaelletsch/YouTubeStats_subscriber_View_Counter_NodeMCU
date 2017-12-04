@@ -76,7 +76,7 @@ void loop() {
   display.clear();
   display.setFont(ArialMT_Plain_16);
   display.setTextAlignment(TEXT_ALIGN_CENTER);
-  display.drawString(64, 0, "YoutubeStats");
+  display.drawString(64, 0, "YouTubeStats");
 
   if (subcountme == 0)
   {
