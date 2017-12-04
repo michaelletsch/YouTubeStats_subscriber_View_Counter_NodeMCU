@@ -5,7 +5,7 @@ https://www.ebay.com/p/WiFi-Module-Esp8266-18650-Batteries-NodeMCU-0-96-oled/227
 
 https://goo.gl/x6QALt
 
-libraries used in this project:
+Libraries used in this project:
 * YoutubeApi https://github.com/witnessmenow/arduino-youtube-api
 * esp8266-oled-ssd1306 https://github.com/squix78/esp8266-oled-ssd1306
  
