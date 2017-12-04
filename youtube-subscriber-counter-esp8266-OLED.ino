@@ -14,7 +14,7 @@ char password[] = "****";  // your network key
 WiFiClientSecure client;
 YoutubeApi api(API_KEY, client);
 
-int api_mtbs = 60000; //mean time between api requests
+int api_mtbs = 30000; //mean time between api requests
 long api_lasttime;   //last time api request has been done
 
 long subs = 0;
@@ -38,6 +38,8 @@ void setup() {
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
+    display.setFont(ArialMT_Plain_10);
+    display.drawString(64, 50, "Loading..");
     delay(500);
   }
   Serial.println("");
@@ -64,12 +66,12 @@ void loop() {
       //Serial.print("hiddenSubscriberCount: ");
       //Serial.println(api.channelStats.hiddenSubscriberCount);
       Serial.println("------------------------");
-
     }
     api_lasttime = millis();
+
   }
 
-int subcountme = api.channelStats.subscriberCount;
+  int subcountme = api.channelStats.subscriberCount;
 
   display.clear();
   display.setFont(ArialMT_Plain_16);
@@ -77,28 +79,42 @@ int subcountme = api.channelStats.subscriberCount;
   display.drawString(64, 0, "YoutubeStats");
 
   if (subcountme == 0)
-{
-  display.setFont(ArialMT_Plain_16);
-  display.drawString(64, 24, "loading ...");
+  {
+    display.setFont(ArialMT_Plain_10);
+    display.drawString(64, 50, "Loading..");
+    // This will draw the part of the circel in quadrant 1
+    // Quadrants are numberd like this:
+    //   0010 | 0001
+    //  ------|-----
+    //   0100 | 1000
+    //
+    display.drawCircleQuads(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, DISPLAY_HEIGHT / 8, 0b00000001);
+    display.display();
+    delay(200);
+    display.drawCircleQuads(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, DISPLAY_HEIGHT / 8, 0b00000011);
+    display.display();
+    delay(200);
+    display.drawCircleQuads(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, DISPLAY_HEIGHT / 8, 0b00000111);
+    display.display();
+    delay(200);
+    display.drawCircleQuads(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, DISPLAY_HEIGHT / 8, 0b00001111);
+    display.display();
   }
-else {
-  display.setTextAlignment(TEXT_ALIGN_RIGHT);
-  display.setFont(ArialMT_Plain_10);
-  display.drawString(30, 27, "Subs:");
-  
-  display.setFont(ArialMT_Plain_16);
-  display.drawString(120, 25, String(api.channelStats.subscriberCount));
-  
-  display.setFont(ArialMT_Plain_10);
-  display.drawString(30, 47, "Views:");
-  
-  display.setFont(ArialMT_Plain_16);
-  display.drawString(120, 45, String(api.channelStats.viewCount));
-  }
-  
-  
+  else {
+    display.setTextAlignment(TEXT_ALIGN_RIGHT);
+    display.setFont(ArialMT_Plain_10);
+    display.drawString(30, 27, "Subs:");
 
-  
+    display.setFont(ArialMT_Plain_16);
+    display.drawString(120, 25, String(api.channelStats.subscriberCount));
+
+    display.setFont(ArialMT_Plain_10);
+    display.drawString(30, 47, "Views:");
+
+    display.setFont(ArialMT_Plain_16);
+    display.drawString(120, 45, String(api.channelStats.viewCount));
+  }
+
   //display.drawString(12, 32, "Video:");
   //display.drawString(72, 32, String(api.channelStats.videoCount));
 
