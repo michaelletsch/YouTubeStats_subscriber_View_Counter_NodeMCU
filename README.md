@@ -1,5 +1,6 @@
 YouTubeStats is a YouTube subscriber and view counter for NODEMCU wifi ESP8266 ESP12F wemos 0.96\"oled development board.
 
+The board is also called WiFi Deauther Boards.
 board link:
 
 https://www.ebay.com/p/WiFi-Module-Esp8266-18650-Batteries-NodeMCU-0-96-oled/2275107072
