@@ -11,7 +11,7 @@ Libraries used in this project:
  
  YouTube counter:
  
- <iframe width="560" height="315" src="https://www.youtube.com/embed/E-51DwuCdP8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+[linkname](https://youtu.be/E-51DwuCdP8)
  
  <img width="350" alt=" " src="https://github.com/michaelletsch/youtube_subscriberCount_ViewCount_esp8266_oled_NodeMCU/blob/master/20171204_223745.jpg?raw=true">
  
