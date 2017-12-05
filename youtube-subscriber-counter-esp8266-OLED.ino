@@ -17,8 +17,8 @@ char password[] = "****";  // your network key
 WiFiClientSecure client;
 YoutubeApi api(API_KEY, client);
 
-int api_mtbs = 60000; //mean time between api requests
-long api_lasttime;   //last time api request has been done
+int api_mtbs = 60000; //time between api requests
+long api_lasttime;   //time api request has been done
 
 long subs = 0;
 void setup() {
@@ -29,7 +29,7 @@ void setup() {
   display.flipScreenVertically();
   display.setFont(ArialMT_Plain_10);
 
-  // Set WiFi to station mode and disconnect from an AP if it was Previously
+  // Set WiFi station mode and disconnect from an AP if it was Previously
   // connected
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
